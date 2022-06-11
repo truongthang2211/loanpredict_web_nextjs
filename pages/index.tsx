@@ -429,9 +429,9 @@ const Home: NextPage = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
-        if (data == "[0]") {
+        if (data.data == "[0]") {
           setResult("No");
-        } else if (data == "[1]") {
+        } else if (data.data == "[1]") {
           setResult("Yes");
         } else {
           setResult("Model not found");
@@ -464,8 +464,8 @@ const Home: NextPage = () => {
               placeholder="Kollam"
             />
             <datalist id="cities">
-              {cities.map((e) => {
-                return <option>{e}</option>;
+              {cities.map((e, idx) => {
+                return <option key={idx}>{e}</option>;
               })}
             </datalist>
           </div>
@@ -491,8 +491,8 @@ const Home: NextPage = () => {
               placeholder="Kollam"
             />
             <datalist id="states">
-              {states.map((e) => {
-                return <option>{e}</option>;
+              {states.map((e, idx) => {
+                return <option key={idx}>{e}</option>;
               })}
             </datalist>
           </div>
@@ -518,8 +518,8 @@ const Home: NextPage = () => {
               placeholder="Kollam"
             />
             <datalist id="professions">
-              {professions.map((e) => {
-                return <option>{e}</option>;
+              {professions.map((e, idx) => {
+                return <option key={idx}>{e}</option>;
               })}
             </datalist>
           </div>

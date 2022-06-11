@@ -4,6 +4,7 @@ import { PythonShell } from "python-shell";
 
 type Data = {
   name: string;
+  data: string;
 };
 async function PredictRisk(args: string[]) {
   let options = {
@@ -36,7 +37,7 @@ async function PredictRisk(args: string[]) {
 }
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<any>
 ) {
   if (req.method === "POST") {
     const inputObject = JSON.parse(req.body);
@@ -58,7 +59,8 @@ export default async function handler(
       inputObject.model,
     ]);
     console.log(pre);
-    res.status(200).json(pre);
+    res.status(200).json({ data: pre });
+  } else {
+    res.status(200).json({ name: "John Doe" });
   }
-  res.status(200).json({ name: "John Doe" });
 }
