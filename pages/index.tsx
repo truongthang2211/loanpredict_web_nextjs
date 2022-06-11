@@ -421,7 +421,7 @@ const Home: NextPage = () => {
   ];
   const onSubmit = async () => {
     console.log(input);
-    setResult("Peding...");
+    setResult("Pending...");
     const res = await fetch("api/hello", {
       method: "POST",
       body: JSON.stringify(input),
